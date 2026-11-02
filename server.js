@@ -179,6 +179,18 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/styles.css', (req, res) => {
+  res.type('text/css').sendFile(path.join(__dirname, 'styles.css'));
+});
+
+app.get('/chatbot.js', (req, res) => {
+  res.type('application/javascript').sendFile(path.join(__dirname, 'chatbot.js'));
+});
+
+app.get('/logo.svg', (req, res) => {
+  res.type('image/svg+xml').sendFile(path.join(__dirname, 'logo.svg'));
+});
+
 app.get('*', (req, res, next) => {
   if (req.path.startsWith('/api')) return next();
   const filePath = path.join(__dirname, req.path);
