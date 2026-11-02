@@ -175,6 +175,22 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Cynbit AI Concierge Server running on http://localhost:${PORT}`);
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) return next();
+  const filePath = path.join(__dirname, req.path);
+  res.sendFile(filePath, (err) => {
+    if (err) res.sendFile(path.join(__dirname, 'index.html'));
+  });
+});
+
+if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Cynbit AI Concierge Server running on http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
