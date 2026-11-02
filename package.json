@@ -1,0 +1,27 @@
+{
+  "name": "cynbit-ai-concierge",
+  "version": "1.0.0",
+  "description": "Full-Stack AI Chatbot Concierge for Cynbit Technologies (Jaipur)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "cynbit",
+    "ai-chatbot",
+    "full-stack",
+    "llm",
+    "gemini",
+    "openai",
+    "rag",
+    "vercel"
+  ],
+  "author": "Sarvesh Pandey",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
